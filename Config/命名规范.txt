@@ -1,0 +1,122 @@
+1. 节点命名规范
+场景根节点：
+text
+[功能]_[类型]_Root
+例： 
+Quiz_Manager_Root
+Question_Display_Root  
+Answer_Input_Root
+功能节点：
+text
+[父节点简写]_[功能]_[类型]
+例：
+QM_Question_Label      # QuizManager下的题目标签
+QM_Answer_Button       # QuizManager下的答案按钮
+AD_Progress_Bar        # AnswerDisplay下的进度条
+容器节点：
+text
+[功能]_[布局]_Container
+例：
+Question_VBox_Container
+Answer_Grid_Container
+Navigation_HBox_Container
+2. 自定义函数命名规范
+基本原则：
+text
+[动作]_[目标]_[上下文]_[额外信息]
+具体模式：
+数据操作类：
+
+gdscript
+# 加载相关
+func load_question_by_id(question_id: int)
+func load_questions_from_category(category: String) 
+func load_user_progress_from_save()
+
+# 更新相关
+func update_question_display_with_data(question_data: Dictionary)
+func update_score_with_difficulty(difficulty: String)
+func update_ui_after_answer_submission()
+
+# 验证相关
+func validate_answer_against_solution(user_answer: String)
+func validate_question_data_integrity(question_data: Dictionary)
+UI操作类：
+
+gdscript
+# 显示/隐藏
+func show_question_panel_with_animation()
+func hide_answer_buttons_after_selection()
+func toggle_settings_panel_with_fade()
+
+# 更新UI状态
+func enable_submit_button_after_selection()
+func disable_navigation_during_loading()
+func highlight_correct_answer_in_green()
+业务逻辑类：
+
+gdscript
+# 流程控制
+func proceed_to_next_question_after_delay(delay: float)
+func restart_quiz_with_current_settings()
+func exit_to_main_menu_with_confirmation()
+
+# 计算类
+func calculate_score_based_on_time_and_accuracy(time_used: float, is_correct: bool)
+func compute_progress_percentage_from_answered_count()
+3. 信号命名规范
+事件发生信号：
+text
+[对象]_[动作]_[状态]
+例：
+question_changed
+answer_submitted
+quiz_completed
+user_progress_updated
+请求动作信号：
+text
+request_[动作]_[目标]
+例：
+request_question_load
+request_ui_update  
+request_sound_play
+request_data_save
+4. 变量命名规范
+基础变量：
+gdscript
+# 状态变量
+var is_question_loaded: bool
+var has_user_answered: bool
+var can_proceed_to_next: bool
+
+# 数据变量
+var current_question_data: Dictionary
+var user_answer_history: Array
+var quiz_settings_config: Dictionary
+
+# 引用变量
+var question_display_label: Label
+var answer_buttons_array: Array
+var progress_display_node: ProgressBar
+临时变量（允许简短）：
+gdscript
+# 在短函数内可以简短
+func process_answer():
+	var q_data = current_question_data  # 可以接受
+	var ans = get_selected_answer()     # 可以接受
+	var is_correct = check_answer(ans)  # 可以接受
+5. 场景文件命名规范
+text
+[模块]_[功能]_[版本].tscn
+例：
+Quiz_Core_Manager_V1.tscn
+UI_Question_Display_V2.tscn
+Data_Question_Loader_V1.tscn
+6. 脚本文件命名规范
+text
+[节点类型]_[功能]_[职责].gd
+例：
+Manager_Quiz_Core.gd
+Panel_Question_Display.gd  
+Button_Answer_Choice.gd
+Service_Data_Loader.gd

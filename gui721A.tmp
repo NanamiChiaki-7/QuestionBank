@@ -1,0 +1,490 @@
+[gd_scene load_steps=18 format=3 uid="uid://3kx61su51xdr"]
+
+[ext_resource type="Script" path="res://code/GUI.gd" id="1_7538e"]
+[ext_resource type="Script" path="res://code/choices_list.gd" id="1_tcx7i"]
+[ext_resource type="Script" path="res://code/problem_call.gd" id="1_w3yvj"]
+[ext_resource type="Script" path="res://code/start.gd" id="2_2jn3l"]
+[ext_resource type="Texture2D" uid="uid://cmsubjrnr5s8t" path="res://background/测试背景1.jpg" id="2_bpncc"]
+[ext_resource type="Script" path="res://code/option_item.gd" id="3_2npre"]
+[ext_resource type="Script" path="res://code/bottom_placeholder.gd" id="3_e634g"]
+[ext_resource type="Script" path="res://code/submit_.gd" id="4_f7hph"]
+[ext_resource type="Script" path="res://code/exit.gd" id="4_qb4w4"]
+[ext_resource type="Script" path="res://code/bank_list.gd" id="5_e3vk8"]
+[ext_resource type="Script" path="res://code/chose_bank.gd" id="6_jttgd"]
+[ext_resource type="Script" path="res://code/texture_rect_ready.gd" id="12_73hee"]
+[ext_resource type="Script" path="res://code/Setting.gd" id="12_wg5rb"]
+[ext_resource type="Script" path="res://code/history_check.gd" id="13_774no"]
+[ext_resource type="Script" path="res://bank_background_setting.gd" id="13_er4ov"]
+[ext_resource type="Script" path="res://code/history_ui.gd" id="14_o1dgo"]
+[ext_resource type="Script" path="res://jump_to_setting.gd" id="15_fnbaa"]
+
+[node name="GUI" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -269.0
+offset_bottom = -181.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.30622, 1.38548)
+script = ExtResource("1_7538e")
+metadata/_edit_lock_ = true
+
+[node name="BackGround" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bpncc")
+expand_mode = 1
+script = ExtResource("12_73hee")
+
+[node name="History" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("14_o1dgo")
+
+[node name="Title" type="Label" parent="History"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 117.0
+offset_bottom = 44.0
+text = "历史记录"
+
+[node name="Bank_history" type="RichTextLabel" parent="History"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 56.0
+offset_right = 865.0
+offset_bottom = 451.0
+text = "历史记录"
+
+[node name="back_button" type="Button" parent="History"]
+layout_mode = 0
+offset_left = 749.491
+offset_top = 14.0
+offset_right = 852.491
+offset_bottom = 45.0
+text = "返回"
+
+[node name="delete_button" type="Button" parent="History"]
+layout_mode = 0
+offset_left = 640.015
+offset_top = 14.0
+offset_right = 743.015
+offset_bottom = 45.0
+text = "清除所有"
+
+[node name="Label_list" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w3yvj")
+
+[node name="Label_list" type="VBoxContainer" parent="Label_list"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 18.0
+offset_right = -26.0
+offset_bottom = -32.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label_list_" type="HBoxContainer" parent="Label_list/Label_list"]
+layout_mode = 2
+
+[node name="ID" type="Label" parent="Label_list/Label_list/Label_list_"]
+layout_mode = 2
+text = "ID"
+
+[node name="Timer_" type="Label" parent="Label_list/Label_list/Label_list_/ID"]
+layout_mode = 0
+offset_left = 732.912
+offset_top = 0.0442875
+offset_right = 780.912
+offset_bottom = 23.0443
+
+[node name="Time_" type="Label" parent="Label_list/Label_list/Label_list_/ID"]
+layout_mode = 0
+offset_left = 584.392
+offset_top = 0.0442875
+offset_right = 648.392
+offset_bottom = 23.0443
+text = "当前时间"
+
+[node name="Tags" type="Label" parent="Label_list/Label_list/Label_list_"]
+layout_mode = 2
+text = "Tags"
+
+[node name="Count" type="Label" parent="Label_list/Label_list/Label_list_"]
+layout_mode = 2
+text = "计数器"
+
+[node name="Mistake_Count" type="Label" parent="Label_list/Label_list/Label_list_"]
+layout_mode = 2
+text = "正确率"
+
+[node name="Problem" type="RichTextLabel" parent="Label_list/Label_list"]
+layout_mode = 2
+text = "Problem_Text"
+fit_content = true
+
+[node name="Choices" type="VBoxContainer" parent="Label_list/Label_list"]
+layout_mode = 2
+script = ExtResource("1_tcx7i")
+
+[node name="example_" type="RichTextLabel" parent="Label_list/Label_list/Choices"]
+visible = false
+layout_mode = 2
+text = "A.作者:陈坤 联系方式: vx:GoldenAgeReturn *未经允许，禁止二次分发* "
+fit_content = true
+script = ExtResource("3_2npre")
+
+[node name="Choice_text" type="Button" parent="Label_list/Label_list/Choices/example_"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = -6.0
+offset_right = 841.0
+offset_bottom = 360.0
+
+[node name="submit_" type="RichTextLabel" parent="Label_list"]
+layout_mode = 2
+offset_left = 25.0
+offset_top = 415.019
+offset_right = 857.0
+offset_bottom = 438.019
+size_flags_vertical = 8
+text = "你的选项是:"
+fit_content = true
+script = ExtResource("4_f7hph")
+
+[node name="submit_buttom" type="Button" parent="Label_list/submit_"]
+layout_mode = 0
+offset_left = 755.0
+offset_top = -6.0
+offset_right = 829.0
+offset_bottom = 25.0
+text = "提交"
+
+[node name="Notice" type="Button" parent="Label_list"]
+visible = false
+layout_mode = 0
+offset_left = 103.352
+offset_top = 275.717
+offset_right = 239.352
+offset_bottom = 327.717
+rotation = -0.383683
+scale = Vector2(4.70316, 3.48031)
+text = "你已完成所有题目
+点击返回主页"
+
+[node name="Chose_Bank" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Chose_Bank"]
+layout_mode = 0
+offset_right = 580.0
+offset_bottom = 43.0
+scale = Vector2(1.39487, 1.39912)
+text = "      设置                                               点击选择题库"
+
+[node name="Bank_list" type="ScrollContainer" parent="Chose_Bank"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 143.161
+offset_top = -199.577
+offset_right = -11.839
+offset_bottom = 218.423
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bank_list" type="VBoxContainer" parent="Chose_Bank/Bank_list"]
+layout_mode = 2
+script = ExtResource("5_e3vk8")
+
+[node name="example_" type="Label" parent="Chose_Bank/Bank_list/Bank_list"]
+layout_mode = 2
+text = "A.作者:陈坤 联系方式: vx:GoldenAgeReturn *未经允许，禁止二次分发* "
+script = ExtResource("6_jttgd")
+
+[node name="Button" type="Button" parent="Chose_Bank/Bank_list/Bank_list/example_"]
+layout_mode = 0
+offset_right = 729.0
+offset_bottom = 24.0
+
+[node name="question_setting" type="ScrollContainer" parent="Chose_Bank"]
+layout_mode = 0
+offset_left = 9.18681
+offset_top = 34.645
+offset_right = 125.187
+offset_bottom = 103.645
+
+[node name="question_setting" type="VBoxContainer" parent="Chose_Bank/question_setting"]
+layout_mode = 2
+alignment = 1
+
+[node name="random_" type="CheckButton" parent="Chose_Bank/question_setting/question_setting"]
+layout_mode = 2
+text = "随机顺序"
+
+[node name="timer_" type="CheckButton" parent="Chose_Bank/question_setting/question_setting"]
+layout_mode = 2
+text = "计时器"
+alignment = 1
+
+[node name="None" type="CheckButton" parent="Chose_Bank/question_setting/question_setting"]
+layout_mode = 2
+text = "等待更新"
+alignment = 1
+
+[node name="history_check" type="Button" parent="Chose_Bank"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 6.12454
+offset_top = -119.46
+offset_right = 121.125
+offset_bottom = -92.4601
+grow_vertical = 2
+text = "查看历史记录"
+script = ExtResource("13_774no")
+
+[node name="Setting" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_wg5rb")
+
+[node name="Back_ground_set" type="Control" parent="Setting"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bank_background" type="ScrollContainer" parent="Setting/Back_ground_set"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 143.161
+offset_top = -199.577
+offset_right = -11.839
+offset_bottom = 218.423
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bank_background" type="VBoxContainer" parent="Setting/Back_ground_set/Bank_background"]
+layout_mode = 2
+script = ExtResource("13_er4ov")
+
+[node name="example_" type="Label" parent="Setting/Back_ground_set/Bank_background/Bank_background"]
+layout_mode = 2
+text = "A.作者:陈坤 联系方式: vx:GoldenAgeReturn *未经允许，禁止二次分发* "
+script = ExtResource("6_jttgd")
+
+[node name="Button" type="Button" parent="Setting/Back_ground_set/Bank_background/Bank_background/example_"]
+layout_mode = 0
+offset_right = 729.0
+offset_bottom = 24.0
+
+[node name="setting_list" type="ScrollContainer" parent="Setting"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -288.5
+offset_top = 64.0
+offset_right = 300.5
+offset_bottom = -51.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="setting_list" type="VBoxContainer" parent="Setting/setting_list"]
+layout_mode = 2
+alignment = 1
+
+[node name="back_ground_set" type="Button" parent="Setting/setting_list/setting_list"]
+layout_mode = 2
+text = "背景设置 *正在施工*"
+
+[node name="None" type="Button" parent="Setting/setting_list/setting_list"]
+layout_mode = 2
+text = "预留位"
+
+[node name="Title" type="Label" parent="Setting"]
+layout_mode = 0
+offset_left = 109.476
+offset_top = 12.9919
+offset_right = 150.476
+offset_bottom = 35.9919
+scale = Vector2(2.07834, 1.99754)
+text = "设置"
+horizontal_alignment = 3
+
+[node name="Back" type="Button" parent="Setting"]
+layout_mode = 0
+offset_left = 766.333
+offset_top = 431.619
+offset_right = 851.333
+offset_bottom = 453.619
+text = "返回"
+
+[node name="Main_meun" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Choices" type="VBoxContainer" parent="Main_meun"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -71.5
+offset_bottom = 95.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Start" type="Label" parent="Main_meun/Choices"]
+layout_mode = 2
+text = "开始"
+horizontal_alignment = 1
+script = ExtResource("2_2jn3l")
+
+[node name="Button" type="Button" parent="Main_meun/Choices/Start"]
+layout_mode = 0
+offset_left = 380.0
+offset_right = 502.0
+offset_bottom = 22.0
+
+[node name="check_In" type="Label" parent="Main_meun/Choices"]
+layout_mode = 2
+text = "录入"
+horizontal_alignment = 1
+script = ExtResource("3_e634g")
+
+[node name="Button" type="Button" parent="Main_meun/Choices/check_In"]
+layout_mode = 0
+offset_left = 380.0
+offset_right = 502.0
+offset_bottom = 22.0
+
+[node name="mistake_notebook" type="Label" parent="Main_meun/Choices"]
+layout_mode = 2
+text = "错题本"
+horizontal_alignment = 1
+script = ExtResource("3_e634g")
+
+[node name="Button" type="Button" parent="Main_meun/Choices/mistake_notebook"]
+layout_mode = 0
+offset_left = 380.0
+offset_right = 502.0
+offset_bottom = 22.0
+
+[node name="check_Out" type="Label" parent="Main_meun/Choices"]
+layout_mode = 2
+text = "检查完整性"
+horizontal_alignment = 1
+script = ExtResource("3_e634g")
+
+[node name="Button" type="Button" parent="Main_meun/Choices/check_Out"]
+layout_mode = 0
+offset_left = 380.0
+offset_right = 502.0
+offset_bottom = 22.0
+
+[node name="Favorites" type="Label" parent="Main_meun/Choices"]
+layout_mode = 2
+text = "收藏夹"
+horizontal_alignment = 1
+script = ExtResource("3_e634g")
+
+[node name="Button" type="Button" parent="Main_meun/Choices/Favorites"]
+layout_mode = 0
+offset_left = 380.0
+offset_right = 502.0
+offset_bottom = 22.0
+
+[node name="Setting" type="Label" parent="Main_meun/Choices"]
+layout_mode = 2
+text = "设置"
+horizontal_alignment = 1
+script = ExtResource("15_fnbaa")
+
+[node name="Button" type="Button" parent="Main_meun/Choices/Setting"]
+layout_mode = 0
+offset_left = 380.0
+offset_right = 502.0
+offset_bottom = 22.0
+
+[node name="Exit" type="Label" parent="Main_meun/Choices"]
+layout_mode = 2
+text = "退出"
+horizontal_alignment = 1
+script = ExtResource("4_qb4w4")
+
+[node name="Button" type="Button" parent="Main_meun/Choices/Exit"]
+layout_mode = 0
+offset_left = 380.0
+offset_right = 502.0
+offset_bottom = 22.0
+
+[node name="Name_" type="Label" parent="Main_meun"]
+layout_mode = 0
+offset_left = 482.308
+offset_top = 103.935
+offset_right = 583.308
+offset_bottom = 126.935
+scale = Vector2(0.520669, 0.579876)
+text = "作者:陈坤 联系方式: vx:GoldenAgeReturn *未经允许，禁止二次分发* "
+horizontal_alignment = 1
+
+[node name="Title_" type="Label" parent="Main_meun"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 225.077
+offset_top = 29.5926
+offset_right = -484.923
+offset_bottom = 52.5926
+grow_horizontal = 2
+scale = Vector2(2.40166, 3.22434)
+text = "题库系统 V2.01"
+horizontal_alignment = 3

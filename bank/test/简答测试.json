@@ -1,0 +1,18 @@
+[
+  {
+	"id": 1,
+	"tags": "Version:1.1",
+	"question": "\u4f5c\u8005:\u9648\u5764 Author:ChenKun",
+	"options": "\nA\u7981\u6b62\u4e8c\u6b21\u5206\u53d1\nB Prohibit secondary distribution\n",
+	"answer": "\u6821\u9a8c\u7801\u5360\u4f4d\u7b26 Verification code placeholder",
+	"nextd": []
+  },
+  {
+	"id": 2,
+	"tags": "\u586b\u7a7a/\u7b80\u7b54\u6d4b\u8bd5",
+	"question": "\u7b80\u7b54\u9898:\u8fd9\u662f\u4e2a\u6d4b\u8bd5",
+	"options": "\nA\u8bf7\u4f5c\u7b54\n",
+	"answer": "Hello World!",
+	"nextd": []
+  }
+]

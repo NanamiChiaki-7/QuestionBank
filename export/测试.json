@@ -1,0 +1,82 @@
+[
+	{
+		"id": 1,
+		"tags": "Version:1.1",
+		"question": "作者:陈坤 Author:ChenKun",
+		"options": "\nA禁止二次分发\nB Prohibit secondary distribution\n",
+		"answer": "校验码占位符 Verification code placeholder",
+		"nextd": []
+	},
+	{
+		"id": 2,
+		"tags": "第一章*绪论",
+		"question": "单选题 人体生理学的任务主要是阐明()",
+		"options": "A人体物理变化的规律\nB人体化学变化的规律\nC人体细胞的功能\nD正常人体功能活动的规律\nE人体结构和形态\n",
+		"answer": "D",
+		"nextd": []
+	},
+	{
+		"id": 3,
+		"tags": "第一章*绪论",
+		"question": "单选题 人体生理学的研究任务是阐明()",
+		"options": "A机体及其各组成部分的各种正常生命活动及其规律\nB人体与环境的相互关系与影响\nC机体内的物理化学变化\nD细胞的生命活动\nE研究机体在患病状态下功能活动的变化\n",
+		"answer": "A",
+		"nextd": []
+	},
+	{
+		"id": 4,
+		"tags": "第一章*绪论",
+		"question": "单选题 关于生理学研究的正确观点是()",
+		"options": "A利用动物试验的结果来推断人体生理功能是不可行的\nB由于人是哺乳类动物故采用其他哺乳类动物做实验得出的结果可等同于人体结果\nC考虑到动物材料与人体的差异,应尽量开展人体实验\nD生理学研究的结果须在多个水平进行并对结果加以整合\nE生理学研究不包括基因水平的研究\n",
+		"answer": "D",
+		"nextd": []
+	},
+	{
+		"id": 5,
+		"tags": "第一章*绪论",
+		"question": "单选题 下列哪个水平的生理学研究有助于揭示生命现象最本质的基本规律()",
+		"options": "A细胞和分子水平\nB组织和细胞水平\nC器官和组织水平\nD器官和系统水平\nE整体水平\n",
+		"answer": "A",
+		"nextd": []
+	},
+	{
+		"id": 6,
+		"tags": "第一章*绪论",
+		"question": "单选题 在生理学中,对下列哪一项功能活动的描述属于细胞和分子水平()",
+		"options": "A条件反射\nB肌丝滑行\nC心脏射血\nD防御反应\nE基础代谢\n",
+		"answer": "B",
+		"nextd": []
+	},
+	{
+		"id": 7,
+		"tags": "第一章*绪论",
+		"question": "单选题 生物与非生物的主要区别在于()",
+		"options": "A组成的元素\nB大分子化合物的有无\nC化学规律不同\nD新陈代谢\nE物理规律的不同\n",
+		"answer": "D",
+		"nextd": []
+	},
+	{
+		"id": 8,
+		"tags": "2",
+		"question": "12",
+		"options": "A6\n",
+		"answer": "4",
+		"nextd": []
+	},
+	{
+		"id": 9,
+		"tags": "测试",
+		"question": "测试",
+		"options": "",
+		"answer": "啊",
+		"nextd": []
+	},
+	{
+		"id": 10,
+		"tags": "测试",
+		"question": "测试",
+		"options": "A测试\n",
+		"answer": "测试",
+		"nextd": []
+	}
+]

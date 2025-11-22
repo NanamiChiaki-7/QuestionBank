@@ -1,0 +1,980 @@
+[gd_scene load_steps=32 format=3 uid="uid://3kx61su51xdr"]
+
+[ext_resource type="Script" path="res://code/GUI.gd" id="1_7538e"]
+[ext_resource type="Script" path="res://code/choices_list.gd" id="1_tcx7i"]
+[ext_resource type="Script" path="res://code/problem_call.gd" id="1_w3yvj"]
+[ext_resource type="Script" path="res://code/start.gd" id="2_2jn3l"]
+[ext_resource type="Texture2D" uid="uid://c0x8yaygaat68" path="res://background/默认背景0.jpg" id="2_pfylj"]
+[ext_resource type="Script" path="res://code/option_item.gd" id="3_2npre"]
+[ext_resource type="Script" path="res://code/bottom_placeholder.gd" id="3_e634g"]
+[ext_resource type="Script" path="res://code/submit_.gd" id="4_f7hph"]
+[ext_resource type="Script" path="res://code/log_in_button.gd" id="4_psxrc"]
+[ext_resource type="Script" path="res://code/exit.gd" id="4_qb4w4"]
+[ext_resource type="Script" path="res://code/inport.gd" id="5_57x2s"]
+[ext_resource type="Script" path="res://code/bank_list.gd" id="5_e3vk8"]
+[ext_resource type="Script" path="res://code/export_bank_list.gd" id="6_6knla"]
+[ext_resource type="Script" path="res://code/chose_bank.gd" id="6_jttgd"]
+[ext_resource type="Script" path="res://code/export_example_.gd" id="7_617ub"]
+[ext_resource type="Script" path="res://code/export_pocess_1.gd" id="8_gbtc5"]
+[ext_resource type="Script" path="res://code/done_example_.gd" id="9_phfi1"]
+[ext_resource type="Script" path="res://code/answer_edit.gd" id="9_qtfyn"]
+[ext_resource type="Script" path="res://code/texture_rect_ready.gd" id="12_73hee"]
+[ext_resource type="Script" path="res://code/Setting.gd" id="12_wg5rb"]
+[ext_resource type="Script" path="res://code/history_check.gd" id="13_774no"]
+[ext_resource type="Script" path="res://code/bank_background_setting.gd" id="13_er4ov"]
+[ext_resource type="Script" path="res://code/history_ui.gd" id="14_o1dgo"]
+[ext_resource type="Texture2D" uid="uid://cl8y5g3dmkldo" path="res://IMG/示例.jpg" id="14_u8ye4"]
+[ext_resource type="Script" path="res://code/back_ground_setting_item.gd" id="14_wjv3r"]
+[ext_resource type="Script" path="res://code/jump_to_setting.gd" id="15_fnbaa"]
+[ext_resource type="Script" path="res://code/back_to_menu.gd" id="18_8g0m8"]
+[ext_resource type="Script" path="res://code/_to_inport.gd" id="20_87uxu"]
+[ext_resource type="Script" path="res://code/filp_background.gd" id="21_766j4"]
+[ext_resource type="Script" path="res://code/mistake_notebook.gd" id="23_ce70q"]
+[ext_resource type="Script" path="res://code/HTTPManager.gd" id="26_jx7f1"]
+
+[node name="RootPanel" type="Panel"]
+self_modulate = Color(1, 1, 1, 0.552941)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -269.0
+offset_bottom = -181.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.30622, 1.38548)
+script = ExtResource("1_7538e")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_pfylj")
+expand_mode = 1
+script = ExtResource("12_73hee")
+
+[node name="HistoryPanel" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("14_o1dgo")
+
+[node name="TitleLabel" type="Label" parent="HistoryPanel"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 117.0
+offset_bottom = 44.0
+text = "历史记录"
+
+[node name="HistoryContent" type="RichTextLabel" parent="HistoryPanel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 56.0
+offset_right = 865.0
+offset_bottom = 451.0
+text = "历史记录"
+
+[node name="BackButton" type="Button" parent="HistoryPanel"]
+layout_mode = 0
+offset_left = 749.491
+offset_top = 14.0
+offset_right = 852.491
+offset_bottom = 45.0
+text = "返回"
+
+[node name="ClearHistoryButton" type="Button" parent="HistoryPanel"]
+layout_mode = 0
+offset_left = 640.015
+offset_top = 14.0
+offset_right = 743.015
+offset_bottom = 45.0
+text = "清除所有"
+
+[node name="ImportPanel" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_57x2s")
+
+[node name="Label" type="Label" parent="ImportPanel"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 22.0
+offset_right = 313.0
+offset_bottom = 45.0
+scale = Vector2(1.35832, 1.504)
+text = "导    入"
+
+[node name="ImportStep0" type="Control" parent="ImportPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SelectExistingLabel" type="Label" parent="ImportPanel/ImportStep0"]
+layout_mode = 0
+offset_left = 169.19
+offset_top = 33.9233
+offset_right = 269.19
+offset_bottom = 56.9233
+text = "选择已有"
+
+[node name="CreateNewLabel" type="Label" parent="ImportPanel/ImportStep0"]
+layout_mode = 0
+offset_left = 169.19
+offset_top = 326.962
+offset_right = 269.19
+offset_bottom = 349.962
+text = "新建"
+
+[node name="BankSelectionPanel" type="Control" parent="ImportPanel/ImportStep0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.7326
+offset_top = 50.524
+offset_right = -111.267
+offset_bottom = -0.476013
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BankScrollContainer" type="ScrollContainer" parent="ImportPanel/ImportStep0/BankSelectionPanel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 143.0
+offset_top = -200.0
+offset_right = 85.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BankListContainer" type="VBoxContainer" parent="ImportPanel/ImportStep0/BankSelectionPanel/BankScrollContainer"]
+layout_mode = 2
+script = ExtResource("6_6knla")
+
+[node name="example_" type="Label" parent="ImportPanel/ImportStep0/BankSelectionPanel/BankScrollContainer/BankListContainer"]
+layout_mode = 2
+text = "A.作者:陈坤 联系方式: vx:GoldenAgeReturn *未经允许，禁止二次分发* "
+script = ExtResource("7_617ub")
+
+[node name="Button" type="Button" parent="ImportPanel/ImportStep0/BankSelectionPanel/BankScrollContainer/BankListContainer/example_"]
+layout_mode = 0
+offset_right = 729.0
+offset_bottom = 24.0
+
+[node name="FileNameInput" type="TextEdit" parent="ImportPanel/ImportStep0"]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 352.0
+offset_right = 858.0
+offset_bottom = 386.0
+placeholder_text = "请输入新建题库文件名"
+
+[node name="ImportStep1" type="Control" parent="ImportPanel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_gbtc5")
+
+[node name="ID" type="Label" parent="ImportPanel/ImportStep1"]
+layout_mode = 0
+offset_left = 41.3407
+offset_top = 60.6288
+offset_right = 79.3407
+offset_bottom = 87.6288
+scale = Vector2(1.59316, 1.38132)
+text = "ID"
+
+[node name="Question" type="Label" parent="ImportPanel/ImportStep1"]
+layout_mode = 0
+offset_left = 80.3846
+offset_top = 60.6288
+offset_right = 118.385
+offset_bottom = 87.6288
+scale = Vector2(1.59316, 1.38132)
+text = "题干"
+
+[node name="Answer_list" type="Label" parent="ImportPanel/ImportStep1"]
+layout_mode = 0
+offset_left = 5.35897
+offset_top = 103.935
+offset_right = 69.359
+offset_bottom = 130.935
+scale = Vector2(1.59316, 1.38132)
+text = "选项列表"
+
+[node name="Answer" type="Label" parent="ImportPanel/ImportStep1"]
+layout_mode = 0
+offset_left = 41.3407
+offset_top = 403.47
+offset_right = 79.3407
+offset_bottom = 430.47
+scale = Vector2(1.59316, 1.38132)
+text = "答案"
+
+[node name="QuestionInput" type="TextEdit" parent="ImportPanel/ImportStep1"]
+layout_mode = 0
+offset_left = 139.0
+offset_top = 61.0
+offset_right = 733.0
+offset_bottom = 126.0
+placeholder_text = "输入题干"
+wrap_mode = 1
+scroll_smooth = true
+
+[node name="TagsInput" type="TextEdit" parent="ImportPanel/ImportStep1"]
+layout_mode = 0
+offset_left = 762.249
+offset_top = 61.3506
+offset_right = 853.249
+offset_bottom = 95.3506
+placeholder_text = "输入标签"
+
+[node name="CorrectAnswerInput" type="TextEdit" parent="ImportPanel/ImportStep1"]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 403.0
+offset_right = 746.0
+offset_bottom = 437.0
+placeholder_text = "输入正确答案(ABCD)"
+
+[node name="OptionInput" type="TextEdit" parent="ImportPanel/ImportStep1"]
+layout_mode = 2
+offset_left = 44.0
+offset_top = 360.886
+offset_right = 792.0
+offset_bottom = 396.886
+placeholder_text = "输入选项 A"
+shortcut_keys_enabled = false
+wrap_mode = 1
+autowrap_mode = 1
+scroll_smooth = true
+script = ExtResource("9_qtfyn")
+
+[node name="Button" type="Button" parent="ImportPanel/ImportStep1/OptionInput"]
+layout_mode = 0
+offset_left = 673.0
+offset_right = 750.0
+offset_bottom = 43.0
+text = "确认"
+
+[node name="OptionsScrollContainer" type="ScrollContainer" parent="ImportPanel/ImportStep1"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 44.0
+offset_top = -102.5
+offset_right = -30.0
+offset_bottom = 118.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OptionsContainer" type="VBoxContainer" parent="ImportPanel/ImportStep1/OptionsScrollContainer"]
+layout_mode = 2
+
+[node name="done_example_" type="Label" parent="ImportPanel/ImportStep1/OptionsScrollContainer/OptionsContainer"]
+layout_mode = 2
+text = "A.作者:陈坤 联系方式: vx:GoldenAgeReturn *未经允许，禁止二次分发* "
+script = ExtResource("9_phfi1")
+
+[node name="Button" type="Button" parent="ImportPanel/ImportStep1/OptionsScrollContainer/OptionsContainer/done_example_"]
+layout_mode = 0
+offset_left = 673.0
+offset_right = 737.0
+offset_bottom = 31.0
+text = "删除"
+
+[node name="submit" type="Button" parent="ImportPanel/ImportStep1"]
+layout_mode = 0
+offset_left = 766.333
+offset_top = 399.14
+offset_right = 851.333
+offset_bottom = 430.14
+text = "确认"
+
+[node name="Back" type="Button" parent="ImportPanel"]
+layout_mode = 0
+offset_left = 766.333
+offset_top = 431.619
+offset_right = 851.333
+offset_bottom = 453.619
+text = "返回"
+
+[node name="QuizPanel" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w3yvj")
+
+[node name="QuizContainer" type="VBoxContainer" parent="QuizPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.858672
+offset_left = 25.0
+offset_top = 18.0
+offset_right = -26.0
+offset_bottom = -32.0
+metadata/_edit_use_anchors_ = true
+
+[node name="HeaderContainer" type="HBoxContainer" parent="QuizPanel/QuizContainer"]
+layout_mode = 2
+
+[node name="QuestionIdLabel" type="Label" parent="QuizPanel/QuizContainer/HeaderContainer"]
+layout_mode = 2
+text = "ID"
+
+[node name="TimerLabel" type="Label" parent="QuizPanel/QuizContainer/HeaderContainer/QuestionIdLabel"]
+layout_mode = 0
+offset_left = 732.912
+offset_top = 0.0442875
+offset_right = 780.912
+offset_bottom = 23.0443
+
+[node name="CurrentTimeLabel" type="Label" parent="QuizPanel/QuizContainer/HeaderContainer/QuestionIdLabel"]
+layout_mode = 0
+offset_left = 584.392
+offset_top = 0.0442875
+offset_right = 648.392
+offset_bottom = 23.0443
+text = "当前时间"
+
+[node name="TagsLabel" type="Label" parent="QuizPanel/QuizContainer/HeaderContainer"]
+layout_mode = 2
+text = "Tags"
+
+[node name="CounterLabel" type="Label" parent="QuizPanel/QuizContainer/HeaderContainer"]
+layout_mode = 2
+text = "计数器"
+
+[node name="AccuracyLabel" type="Label" parent="QuizPanel/QuizContainer/HeaderContainer"]
+layout_mode = 2
+text = "正确率"
+
+[node name="QuestionText" type="RichTextLabel" parent="QuizPanel/QuizContainer"]
+layout_mode = 2
+text = "Problem_Text"
+fit_content = true
+
+[node name="OptionsContainer" type="VBoxContainer" parent="QuizPanel/QuizContainer"]
+layout_mode = 2
+script = ExtResource("1_tcx7i")
+
+[node name="example_" type="RichTextLabel" parent="QuizPanel/QuizContainer/OptionsContainer"]
+visible = false
+layout_mode = 2
+text = "A.作者:陈坤 联系方式: vx:GoldenAgeReturn *未经允许，禁止二次分发* "
+fit_content = true
+script = ExtResource("3_2npre")
+
+[node name="Choice_text" type="Button" parent="QuizPanel/QuizContainer/OptionsContainer/example_"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = -6.0
+offset_right = 841.0
+offset_bottom = 360.0
+
+[node name="ImageContainer" type="Control" parent="QuizPanel/QuizContainer"]
+layout_mode = 2
+
+[node name="QuestionImage" type="TextureRect" parent="QuizPanel/QuizContainer/ImageContainer"]
+layout_mode = 2
+offset_top = -2.0
+offset_right = 4629.0
+offset_bottom = 1991.0
+scale = Vector2(0.129727, 0.150827)
+texture = ExtResource("14_u8ye4")
+stretch_mode = 4
+
+[node name="AnswerInput" type="TextEdit" parent="QuizPanel"]
+layout_mode = 2
+offset_left = 27.0
+offset_top = 379.0
+offset_right = 867.0
+offset_bottom = 448.0
+size_flags_vertical = 8
+text = "你的回答是:"
+wrap_mode = 1
+script = ExtResource("4_f7hph")
+
+[node name="SubmitAnswerButton" type="Button" parent="QuizPanel/AnswerInput"]
+layout_mode = 0
+offset_left = 673.963
+offset_top = 13.6437
+offset_right = 747.963
+offset_bottom = 44.6437
+text = "提交"
+
+[node name="back" type="Button" parent="QuizPanel/AnswerInput"]
+layout_mode = 0
+offset_left = 756.645
+offset_top = 13.6437
+offset_right = 830.645
+offset_bottom = 44.6437
+text = "返回主页"
+
+[node name="CompletionNotice" type="Button" parent="QuizPanel"]
+visible = false
+layout_mode = 0
+offset_left = 103.352
+offset_top = 275.717
+offset_right = 239.352
+offset_bottom = 327.717
+rotation = -0.383683
+scale = Vector2(4.70316, 3.48031)
+text = "你已完成所有题目
+点击返回主页"
+
+[node name="BankSelectionPanel" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BankTitle" type="Label" parent="BankSelectionPanel"]
+layout_mode = 0
+offset_right = 580.0
+offset_bottom = 43.0
+scale = Vector2(1.39487, 1.39912)
+text = "      设置                                               点击选择题库"
+
+[node name="AvailableBanksScroll" type="ScrollContainer" parent="BankSelectionPanel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 143.161
+offset_top = -199.577
+offset_right = -11.839
+offset_bottom = 218.423
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AvailableBanksContainer" type="VBoxContainer" parent="BankSelectionPanel/AvailableBanksScroll"]
+layout_mode = 2
+script = ExtResource("5_e3vk8")
+
+[node name="example_" type="Label" parent="BankSelectionPanel/AvailableBanksScroll/AvailableBanksContainer"]
+layout_mode = 2
+text = "A.作者:陈坤 联系方式: vx:GoldenAgeReturn *未经允许，禁止二次分发* "
+script = ExtResource("6_jttgd")
+
+[node name="Button" type="Button" parent="BankSelectionPanel/AvailableBanksScroll/AvailableBanksContainer/example_"]
+layout_mode = 0
+offset_right = 729.0
+offset_bottom = 24.0
+
+[node name="QuestionSettingsPanel" type="ScrollContainer" parent="BankSelectionPanel"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 35.0
+offset_right = 125.0
+offset_bottom = 136.0
+
+[node name="SettingsContainer" type="VBoxContainer" parent="BankSelectionPanel/QuestionSettingsPanel"]
+layout_mode = 2
+alignment = 1
+
+[node name="RandomOrderToggle" type="CheckButton" parent="BankSelectionPanel/QuestionSettingsPanel/SettingsContainer"]
+layout_mode = 2
+text = "随机顺序"
+
+[node name="TimerToggle" type="CheckButton" parent="BankSelectionPanel/QuestionSettingsPanel/SettingsContainer"]
+layout_mode = 2
+text = "计时器"
+alignment = 1
+
+[node name="MistakeBookToggle" type="CheckButton" parent="BankSelectionPanel/QuestionSettingsPanel/SettingsContainer"]
+layout_mode = 2
+text = "记录错题"
+alignment = 1
+
+[node name="None" type="CheckButton" parent="BankSelectionPanel/QuestionSettingsPanel/SettingsContainer"]
+layout_mode = 2
+text = "等待更新"
+alignment = 1
+
+[node name="ViewHistoryButton" type="Button" parent="BankSelectionPanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 6.12454
+offset_top = 126.664
+offset_right = 121.125
+offset_bottom = 157.664
+grow_vertical = 2
+text = "查看历史记录"
+script = ExtResource("13_774no")
+
+[node name="back_to_menu" type="Button" parent="BankSelectionPanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 6.12454
+offset_top = 155.535
+offset_right = 121.125
+offset_bottom = 186.535
+grow_vertical = 2
+text = "返回主页"
+script = ExtResource("18_8g0m8")
+
+[node name="SettingsPanel" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_wg5rb")
+
+[node name="BackgroundSettingsPanel" type="Control" parent="SettingsPanel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackgroundSettingsPanelScroll" type="ScrollContainer" parent="SettingsPanel/BackgroundSettingsPanel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 143.0
+offset_top = -171.5
+offset_right = -33.0
+offset_bottom = 188.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackgroundSettingsPanelContainer" type="VBoxContainer" parent="SettingsPanel/BackgroundSettingsPanel/BackgroundSettingsPanelScroll"]
+layout_mode = 2
+script = ExtResource("13_er4ov")
+
+[node name="example_" type="Label" parent="SettingsPanel/BackgroundSettingsPanel/BackgroundSettingsPanelScroll/BackgroundSettingsPanelContainer"]
+layout_mode = 2
+text = "显示/不显示背景"
+script = ExtResource("14_wjv3r")
+
+[node name="Button" type="Button" parent="SettingsPanel/BackgroundSettingsPanel/BackgroundSettingsPanelScroll/BackgroundSettingsPanelContainer/example_"]
+layout_mode = 0
+offset_right = 729.0
+offset_bottom = 24.0
+
+[node name="filp" type="Label" parent="SettingsPanel/BackgroundSettingsPanel/BackgroundSettingsPanelScroll/BackgroundSettingsPanelContainer"]
+layout_mode = 2
+text = "水平翻转背景"
+script = ExtResource("21_766j4")
+
+[node name="Button" type="Button" parent="SettingsPanel/BackgroundSettingsPanel/BackgroundSettingsPanelScroll/BackgroundSettingsPanelContainer/filp"]
+layout_mode = 0
+offset_right = 729.0
+offset_bottom = 24.0
+
+[node name="Privacy Policy" type="Control" parent="SettingsPanel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Privacy Policy" type="RichTextLabel" parent="SettingsPanel/Privacy Policy"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 93.0
+offset_top = 58.0
+offset_right = -22.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "题库软件隐私协议
+生效日期： 2025-10-01
+更新日期： 2025-10-01
+
+欢迎您使用我们的题库软件（以下简称“本软件”）。我们深知个人信息对您的重要性，并庄严承诺保护您的隐私。本隐私协议旨在向您清晰地说明，在您使用本软件服务时，我们如何收集、使用、存储和保护您的信息，并阐明您对于这些信息的权利。请您在使用本软件前，仔细阅读并理解本协议的全部内容。您一旦开始使用本软件，即表示您已充分理解并同意本协议的全部约定。
+
+一、 关于用户内容（题库）的所有权与处理
+用户所有权确认： 您在使用本软件过程中，通过“导入”功能自行上传、录入、整理的所有题目、答案、解析、笔记及相关材料（统称为“用户题库”），其所有权仍完全归属于您。本软件仅为您提供一个管理、存储和使用这些内容的工具平台。
+
+我们的授权： 为了向您提供核心的数据存储、同步、备份和展示服务，您需要授予我们一项必要的、不可转让的许可。即，您同意我们可以在全球范围内，仅为实现“本软件功能”之目的，使用、存储、处理和展示您的“用户题库”内容。
+
+您的责任与承诺： 您应确保您拥有其“用户题库”的完整合法权利或已获得必要的授权。您承诺上传的“用户题库”内容：
+
+不侵犯任何第三方的知识产权（包括但不限于著作权、商标权）、商业秘密或其他合法权益；
+
+不违反任何适用的法律法规。
+
+如因您的“用户题库”内容引发任何第三方争议、索赔或诉讼，您将独立承担全部责任，并应使我们免于因此遭受任何损害。
+
+二、 我们如何收集和使用您的个人信息
+我们遵循“最小必要”原则，仅收集实现产品功能所必需的信息。
+
+硬件设备信息： 我们会收集您的设备型号、操作系统版本、唯一设备标识符（如IMEI/Android ID/IDFA/OpenUDID/GUID/IP地址） 等信息。
+
+使用目的： 这些信息仅用于进行用户身份验证、防止账号欺诈和多端恶意登录、保障服务的安全稳定运行，以及进行故障诊断和性能优化。
+
+我们承诺： 我们不会将您的硬件信息与您的个人身份或具体学习行为（如做了哪些题）进行关联分析，也不会将其用于个性化广告推送或出售给第三方。
+
+使用数据与日志信息： 当您使用本软件时，我们会自动收集您对我们服务的详细使用情况，作为有关网络日志保存。例如您的访问时间、使用时长、答题记录（对错）、错题本数据、软件崩溃记录等。
+
+使用目的： 这些信息用于我们分析软件性能、优化产品功能、为您提供“错题本”、“学习记录”等核心服务，以及及时发现并修复系统故障。
+
+三、 信息的存储与保护
+存储地点： 我们将在中国大陆境内的服务器上存储和处理您的个人信息，并遵守中国大陆的数据保护法律法规。
+
+存储期限： 我们仅在为您提供服务的必要期限内保留您的个人信息。当您主动删除数据或注销账户后，我们将按照法律规定在合理期限内删除或匿名化处理您的个人信息。
+
+安全措施： 我们采用符合行业标准的安全技术措施（如加密传输、数据脱敏、访问控制等）来保护您的信息不被未经授权的访问、使用、修改或泄露。
+
+四、 信息的共享、转让与公开披露
+我们不会将您的个人信息出售给任何第三方。仅在以下特定情况下，我们可能会共享您的信息：
+
+征得您的明确同意： 在获得您的事先明确授权后。
+
+法定情形： 根据法律法规的规定、司法行政机关的强制性要求，或用于应对法律诉讼、保护国家利益、公共利益以及本软件用户和公众的人身财产安全之必需。
+
+关联服务商： 为实现本协议声明的目的，我们可能会与我们的云服务提供商、数据存储服务商等合作方共享必要的信息，但我们会要求其严格遵守本隐私协议，并采取足够的安全保障措施。
+
+五、 您的权利
+您有权：
+
+访问、查阅、更正您的个人资料和答题数据；
+
+通过注销账户的方式，终止我们继续收集和使用您的个人信息；
+
+通过本协议末尾的联系方式，就您的个人信息问题向我们提出咨询、投诉或建议。
+
+六、 未成年人保护
+我们非常重视对未成年人个人信息的保护。若您是18周岁以下的未成年人，请在您的监护人指导下仔细阅读本协议，并在征得监护人同意后使用我们的服务。
+
+七、 协议的变更
+我们可能会根据业务发展和法律法规的要求适时更新本隐私协议。更新后的协议将在本软件上发布并生效。若变更内容会实质性影响您的权利和义务，我们将通过显著方式（如软件内推送通知、公告等）通知您。若您继续使用我们的服务，即表示您接受更新后的协议。
+
+八、 免责声明
+尽管我们已采取合理的安全措施，但没有任何互联网传输或电子存储方法是100%安全的。我们无法保证信息的绝对安全。因不可抗力（如黑客攻击、病毒入侵等）导致的信息泄露，我们在法律允许的范围内免责。
+
+九、 联系我们
+如果您对本隐私协议或您的个人信息保护有任何疑问、意见或建议，请通过以下方式与我们联系：
+
+客服邮箱： chentushen@qq.com
+
+QQ群/微信群：1001600531
+
+我们将尽快在合理时间内予以回复。"
+
+[node name="about" type="Control" parent="SettingsPanel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="about_me" type="RichTextLabel" parent="SettingsPanel/about"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 93.0
+offset_top = 58.0
+offset_right = -22.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "关于我:
+	我只是一个计算机技术爱好者，仅此而已。
+	联系方式: VX:GoldenAgeReturn
+关于本软件:
+	BUG和建议反馈Q群: 1001600531
+	*未经作者允许，禁止二次分发*"
+
+[node name="SettingScroll" type="ScrollContainer" parent="SettingsPanel"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -288.5
+offset_top = 64.0
+offset_right = 300.5
+offset_bottom = -51.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingContainer" type="VBoxContainer" parent="SettingsPanel/SettingScroll"]
+layout_mode = 2
+alignment = 1
+
+[node name="back_ground_set" type="Button" parent="SettingsPanel/SettingScroll/SettingContainer"]
+layout_mode = 2
+text = "背景设置 "
+
+[node name="about" type="Button" parent="SettingsPanel/SettingScroll/SettingContainer"]
+layout_mode = 2
+text = "关于"
+
+[node name="privacy_policy" type="Button" parent="SettingsPanel/SettingScroll/SettingContainer"]
+layout_mode = 2
+text = "隐私协议"
+
+[node name="ChangeUserName" type="Button" parent="SettingsPanel/SettingScroll/SettingContainer"]
+layout_mode = 2
+text = "更改用户名"
+
+[node name="None2" type="Button" parent="SettingsPanel/SettingScroll/SettingContainer"]
+layout_mode = 2
+text = "预留位"
+
+[node name="Title" type="Label" parent="SettingsPanel"]
+layout_mode = 0
+offset_left = 109.476
+offset_top = 12.9919
+offset_right = 150.476
+offset_bottom = 35.9919
+scale = Vector2(2.07834, 1.99754)
+text = "设置"
+horizontal_alignment = 3
+
+[node name="Back" type="Button" parent="SettingsPanel"]
+layout_mode = 0
+offset_left = 766.333
+offset_top = 431.619
+offset_right = 851.333
+offset_bottom = 453.619
+text = "返回"
+
+[node name="MainMenuPanel" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuOptionsContainer" type="VBoxContainer" parent="MainMenuPanel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -71.5
+offset_bottom = 95.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Start" type="Label" parent="MainMenuPanel/MenuOptionsContainer"]
+layout_mode = 2
+text = "开始"
+horizontal_alignment = 1
+script = ExtResource("2_2jn3l")
+
+[node name="Button" type="Button" parent="MainMenuPanel/MenuOptionsContainer/Start"]
+layout_mode = 0
+offset_left = 380.0
+offset_right = 502.0
+offset_bottom = 22.0
+
+[node name="Inport" type="Label" parent="MainMenuPanel/MenuOptionsContainer"]
+layout_mode = 2
+text = "录入"
+horizontal_alignment = 1
+script = ExtResource("20_87uxu")
+
+[node name="Button" type="Button" parent="MainMenuPanel/MenuOptionsContainer/Inport"]
+layout_mode = 0
+offset_left = 380.0
+offset_right = 502.0
+offset_bottom = 22.0
+
+[node name="mistake_notebook" type="Label" parent="MainMenuPanel/MenuOptionsContainer"]
+layout_mode = 2
+text = "错题本"
+horizontal_alignment = 1
+script = ExtResource("23_ce70q")
+
+[node name="Button" type="Button" parent="MainMenuPanel/MenuOptionsContainer/mistake_notebook"]
+layout_mode = 0
+offset_left = 380.0
+offset_right = 502.0
+offset_bottom = 22.0
+
+[node name="check_Out" type="Label" parent="MainMenuPanel/MenuOptionsContainer"]
+layout_mode = 2
+text = "检查完整性"
+horizontal_alignment = 1
+script = ExtResource("3_e634g")
+
+[node name="Button" type="Button" parent="MainMenuPanel/MenuOptionsContainer/check_Out"]
+layout_mode = 0
+offset_left = 380.0
+offset_right = 502.0
+offset_bottom = 22.0
+
+[node name="Favorites" type="Label" parent="MainMenuPanel/MenuOptionsContainer"]
+layout_mode = 2
+text = "收藏夹"
+horizontal_alignment = 1
+script = ExtResource("3_e634g")
+
+[node name="Button" type="Button" parent="MainMenuPanel/MenuOptionsContainer/Favorites"]
+layout_mode = 0
+offset_left = 380.0
+offset_right = 502.0
+offset_bottom = 22.0
+
+[node name="Setting" type="Label" parent="MainMenuPanel/MenuOptionsContainer"]
+layout_mode = 2
+text = "设置"
+horizontal_alignment = 1
+script = ExtResource("15_fnbaa")
+
+[node name="Button" type="Button" parent="MainMenuPanel/MenuOptionsContainer/Setting"]
+layout_mode = 0
+offset_left = 380.0
+offset_right = 502.0
+offset_bottom = 22.0
+
+[node name="Exit" type="Label" parent="MainMenuPanel/MenuOptionsContainer"]
+layout_mode = 2
+text = "退出"
+horizontal_alignment = 1
+script = ExtResource("4_qb4w4")
+
+[node name="Button" type="Button" parent="MainMenuPanel/MenuOptionsContainer/Exit"]
+layout_mode = 0
+offset_left = 380.0
+offset_right = 502.0
+offset_bottom = 22.0
+
+[node name="NameLabel" type="Label" parent="MainMenuPanel"]
+layout_mode = 0
+offset_left = 482.308
+offset_top = 103.935
+offset_right = 583.308
+offset_bottom = 126.935
+scale = Vector2(0.520669, 0.579876)
+text = "联系方式: vx:GoldenAgeReturn *未经允许，禁止二次分发* "
+horizontal_alignment = 1
+
+[node name="AppTitle" type="Label" parent="MainMenuPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.346
+offset_top = 20.9314
+offset_right = 84.6533
+offset_bottom = 75.9314
+grow_horizontal = 2
+scale = Vector2(1.3528, 1.53498)
+theme_override_font_sizes/font_size = 38
+text = "题    库    系    统"
+horizontal_alignment = 1
+
+[node name="UserInfoLabel" type="Label" parent="MainMenuPanel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -125.853
+offset_top = -23.1105
+offset_right = 0.146606
+offset_bottom = -0.110474
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.92144, 0.731965)
+text = "用户"
+horizontal_alignment = 2
+
+[node name="LoginPanel" type="Control" parent="MainMenuPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UsernameInput" type="TextEdit" parent="MainMenuPanel/LoginPanel"]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 207.0
+offset_right = 629.0
+offset_bottom = 250.0
+placeholder_text = "请输入用户名 (字数超过24自动取前24个字)"
+
+[node name="RegisterLabel" type="Label" parent="MainMenuPanel/LoginPanel"]
+layout_mode = 0
+offset_left = 146.223
+offset_top = 179.721
+offset_right = 178.223
+offset_bottom = 202.721
+text = "注册"
+
+[node name="LoginButton" type="Button" parent="MainMenuPanel/LoginPanel"]
+layout_mode = 0
+offset_left = 643.843
+offset_top = 206.0
+offset_right = 774.843
+offset_bottom = 249.0
+text = "确认"
+script = ExtResource("4_psxrc")
+
+[node name="VersionLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = -23.0
+offset_right = 903.0
+grow_vertical = 0
+scale = Vector2(0.92144, 0.731965)
+text = "V2.01.6"
+
+[node name="HTTPManager" type="Control" parent="."]
+anchors_preset = 0
+script = ExtResource("26_jx7f1")
